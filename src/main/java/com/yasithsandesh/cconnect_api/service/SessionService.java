@@ -11,4 +11,7 @@ public interface SessionService {
     public List<Session> getAllCounsellorSession(String counselorId);
     public List<Session> getAllCounsellorSession(String counselorId,int month, int year, int day);
     public List<Session> getAllUserSession(String userId);
+
+    //admin
+    public ResponseDTO<Long> sessionCount();
 }

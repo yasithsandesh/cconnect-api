@@ -9,7 +9,6 @@ public class ChannelSaveDTO {
 
     private long serviceProfileId;
 
-    private Date date;
 
     private double price;
 
@@ -22,10 +21,9 @@ public class ChannelSaveDTO {
     public ChannelSaveDTO() {
     }
 
-    public ChannelSaveDTO(String userId, long serviceProfileId, Date date, double price, int month, int year, int day) {
+    public ChannelSaveDTO(String userId, long serviceProfileId,double price, int month, int year, int day) {
         this.userId = userId;
         this.serviceProfileId = serviceProfileId;
-        this.date = date;
         this.price = price;
         this.month = month;
         this.year = year;
@@ -48,13 +46,6 @@ public class ChannelSaveDTO {
         this.serviceProfileId = serviceProfileId;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public double getPrice() {
         return price;

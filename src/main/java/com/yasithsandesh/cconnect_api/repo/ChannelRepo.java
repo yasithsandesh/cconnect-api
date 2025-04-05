@@ -15,4 +15,6 @@ public interface ChannelRepo  extends JpaRepository<Channel, Long> {
     List<Channel> findByServiceProfileAndYearAndMonthAndDay(ServiceProfile serviceProfile, int year, int month, int day);
     List<Channel> findByServiceProfile(ServiceProfile serviceProfile);
     List<Channel> findByUserIdOrderByDateDesc(String  userId);
+    List<Channel> findByServiceProfileAndYearAndMonth(ServiceProfile serviceProfile, int year, int month);
+
 }

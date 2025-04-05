@@ -31,7 +31,7 @@ public class Channel implements Serializable {
     private ServiceProfile serviceProfile;
 
 
-    @Column(name = "date", nullable = false, updatable = false)
+    @Column(name = "date", nullable = true, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
@@ -50,7 +50,7 @@ public class Channel implements Serializable {
 
 
     public Channel(){
-
+        this.date = new Date();
     }
 
     public Channel(String userId, ServiceProfile serviceProfile, double price, int month, int year, int day) {
@@ -61,6 +61,7 @@ public class Channel implements Serializable {
         this.month = month;
         this.year = year;
         this.day = day;
+        this.date = new Date();
     }
 
 

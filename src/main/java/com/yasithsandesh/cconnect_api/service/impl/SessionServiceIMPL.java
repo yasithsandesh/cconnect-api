@@ -89,4 +89,12 @@ public class SessionServiceIMPL implements SessionService {
         }
         return sessionList;
     }
+
+    @Override
+    public ResponseDTO<Long> sessionCount() {
+        ResponseDTO<Long> responseDTO = new ResponseDTO<>();
+        responseDTO.setData(this.sessionRepo.count());
+        responseDTO.setMessage("Successfully session count");
+        return responseDTO;
+    }
 }

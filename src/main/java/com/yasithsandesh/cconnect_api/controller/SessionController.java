@@ -37,4 +37,10 @@ public class SessionController {
     public ResponseEntity<List<Session>> getAllUserSession(@PathVariable String id){
         return new ResponseEntity<>(this.sessionService.getAllUserSession(id),HttpStatus.OK );
     }
+
+    //admin
+    @GetMapping("/session-count")
+    public ResponseEntity<ResponseDTO<Long>> getSessionCount(){
+        return new ResponseEntity<>(this.sessionService.sessionCount(),HttpStatus.OK);
+    }
 }

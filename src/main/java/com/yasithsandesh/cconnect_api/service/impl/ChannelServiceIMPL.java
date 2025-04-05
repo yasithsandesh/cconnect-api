@@ -30,7 +30,7 @@ public class ChannelServiceIMPL implements ChannelService {
         ServiceProfile serviceProfile = this.serviceProfileRepo.getReferenceById(channelSaveDTO.getServiceProfileId());
         Channel channel =  new Channel(channelSaveDTO.getUserId(),serviceProfile,channelSaveDTO.getPrice(),channelSaveDTO.getMonth(),channelSaveDTO.getYear(),channelSaveDTO.getDay());
         this.channelRepo.save(channel);
-        responseDTO.setMessage("Thank you for your payment.Your counseling session is now confirmed. You will receive the session details shortly. If you have any questions, feel free to contact us.");
+        responseDTO.setMessage("Your counseling session is now confirmed. You will receive the session details shortly. If you have any questions, feel free to contact us.");
         responseDTO.setData(channel.getPrice());
         return responseDTO;
     }
@@ -79,9 +79,19 @@ public class ChannelServiceIMPL implements ChannelService {
     }
 
     @Override
-    public List<Channel> getCounsellorChannels(long profileId) {
+    public List<Channel> getCounsellorChannels(String counselorId) {
 
-        return List.of();
+        ServiceProfile serviceProfile = this.serviceProfileRepo.findByCounsellerId(counselorId);
+        List<Channel> channelList =  this.channelRepo.findByServiceProfile(serviceProfile);
+
+        return channelList;
+    }
+
+    @Override
+    public List<Channel> getCounsellorChannels(String counselorId, int year, int month, int day) {
+        ServiceProfile serviceProfile = this.serviceProfileRepo.findByCounsellerId(counselorId);
+        List<Channel> channelList = this.channelRepo.findByServiceProfileAndYearAndMonthAndDay(serviceProfile,year,month,day);
+        return channelList;
     }
 
 

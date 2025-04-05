@@ -11,7 +11,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "session")
-@Getter @Setter
 public class Session  implements Serializable {
     @Id
     @Column(name = "id")
@@ -41,4 +40,27 @@ public class Session  implements Serializable {
         this.channel = channel;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
 }

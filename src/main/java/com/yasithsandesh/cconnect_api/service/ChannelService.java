@@ -21,5 +21,7 @@ public interface ChannelService {
     public ResponseDTO<Boolean> checkChannel(CheckChannelDTO checkChannelDTO);
 
     //getCounsellerAllChannel
-    public List<Channel> getCounsellorChannels(long profileId);
+    public List<Channel> getCounsellorChannels(String counselorId);
+
+    public List<Channel> getCounsellorChannels(String counselorId,int year,int month,int day);
 }
